@@ -1,0 +1,20 @@
+Idempotency means that making the same request multiple times has the exact same effect as making it only once.
+
+Idempotency of different HTTP request methods:
+
+1. GET (Idempotent and Safe)
+   If you refresh your browser 10 times, you just see the same page 10 times.
+   Nothing changes on the server.
+
+2. PUT (Idempotent)
+   If you make a change on the server and then make the same change again,
+   in both scenarios the final state of the database remains the same.
+
+3. DELETE (Idempotent)
+   If a file is deleted from the database and you try to delete it again,
+   an error may be returned, but the final state of the database remains unchanged.
+
+4. POST (Not Idempotent)
+   Creating a new resource using POST is not idempotent because the same request
+   can create multiple resources. For example, if a customer places an order and
+   the same request is sent again, a new order will be created each time.
